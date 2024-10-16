@@ -6,7 +6,16 @@ const CampgroundSchma = new Schema({
   image: String,
   price: Number,
   description: String,
-  location: String
+  location: String,
+  reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }]
 });
+
+CampgroundSchma.post('findOneAndDelete', async function (doc) {
+  if (doc) {
+    await Review.deleteMany({
+      _id: { $in: doc.reviews }
+    })
+  }
+})
 
 module.exports = mongoose.model('Campground', CampgroundSchma);
