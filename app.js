@@ -13,9 +13,6 @@ const User = require('./models/user');
 
 
 const userRoutes = require('./routes/users.js');
-// const Campground = require('./models/campground');
-// const Review = require('./models/review');
-
 const campgroundRoutes = require('./routes/campgrounds')
 const reviewRoutes = require('./routes/reviews')
 
