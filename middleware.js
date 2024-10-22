@@ -21,7 +21,6 @@ module.exports.isLoggedIn = (req, res, next) => {
   next();
 }
 module.exports.validateCampground = (req, res, next) => {
-  console.log('Request body:', req.body);
   const { error } = campgroundSchema.validate(req.body);
   if (error) {
     const message = error.details.map(el => el.message).join(',')
